@@ -1,0 +1,256 @@
+Supriya Sahu 
+Q1. Explain the concept of Type casting with the help of an example.
+ans:- The concept of Type casting is that the compiler automatically changes one data type to another
+epending on what we want the programs to do.
+examples:-.Narrowing type casting 
+public class MyClass {
+public static void main(String[] args) {
+double myDouble = 8.64;
+int myInt = (int) myDouble;
+System.out.println(myDouble);
+System.out.println(myInt);
+}
+}
+Output: 8.64
+8
+
+
+Q2. Explain the concept of OOPs by using a program that will combine each concept of OOPs.
+ans:- The concept of OOPs is to improve code readability and reusability by defining a java program. 
+ 
+Program:- Student Management system:- 
+ //java program to the student management system
+ class Student {
+    private String name;
+    private int age;
+    private String grade;
+
+    public Student(String name, int age, String grade) {
+        this.name = name;
+        this.age = age;
+        this.grade = grade;
+    }
+
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Grade: " + grade);
+    }
+}
+
+public class StudentManagementSystem {
+    public static void main(String[] args) {
+        Student student1 = new Student("John Doe", 17, "A");
+        Student student2 = new Student("Jane Smith", 16, "B");
+
+        student1.displayDetails();
+        System.out.println();
+        student2.displayDetails();
+    }
+}
+
+Activity class
+import java.util.ArrayList;
+import java.util.List;
+
+class Activity {
+    private String activityName;
+    private List<Student> participants;
+
+    public Activity(String activityName) {
+        this.activityName = activityName;
+        this.participants = new ArrayList<>();
+    }
+
+    public void addParticipant(Student student) {
+        participants.add(student);
+    }
+
+    public void removeParticipant(Student student) {
+        participants.remove(student);
+    }
+
+    public void displayParticipants() {
+        System.out.println("Participants for " + activityName + ":");
+        for (Student student : participants) {
+            System.out.println(student.getName());
+        }
+    }
+}
+
+
+
+Q3. Write a program to perform the following operation with the help of packages:-
+
+
+a. Armstrong NO
+ans:- Activity class 
+import java.util.Scanner;  
+import java.lang.Math;  
+public class ArmstsrongNumberExample  
+{  
+//function to check if the number is Armstrong or not  
+static boolean isArmstrong(int n)   
+{   
+int temp, digits=0, last=0, sum=0;   
+//assigning n into a temp variable  
+temp=n;   
+//loop execute until the condition becomes false  
+while(temp>0)    
+{   
+temp = temp/10;   
+digits++;   
+}   
+temp = n;   
+while(temp>0)   
+{   
+//determines the last digit from the number      
+last = temp % 10;   
+//calculates the power of a number up to digit times and add the resultant to the sum variable  
+sum +=  (Math.pow(last, digits));   
+//removes the last digit   
+temp = temp/10;   
+}  
+//compares the sum with n  
+if(n==sum)   
+//returns if sum and n are equal  
+return true;      
+//returns false if sum and n are not equal  
+else return false;   
+}   
+//driver code  
+public static void main(String args[])     
+{     
+int num;   
+Scanner sc= new Scanner(System.in);  
+System.out.print("Enter the limit: ");  
+//reads the limit from the user  
+num=sc.nextInt();  
+System.out.println("Armstrong Number up to "+ num + " are: ");  
+for(int i=0; i<=num; i++)  
+//function calling  
+if(isArmstrong(i))  
+//prints the armstrong numbers  
+System.out.print(i+ ", ");  
+}   
+}  
+
+OUTPUT:- Enter the limit: 999
+Armstrong Number up to 999 are: 
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407
+
+
+
+b. Check entered character is palindrom or not 
+class PalindromeExample{  
+ public static void main(String args[]){  
+  int r,sum=0,temp;    
+  int n=454;//It is the number variable to be checked for palindrome  
+  
+  temp=n;    
+  while(n>0){    
+   r=n%10;  //getting remainder  
+   sum=(sum*10)+r;    
+   n=n/10;    
+  }    
+  if(temp==sum)    
+   System.out.println("palindrome number ");    
+  else    
+   System.out.println("not palindrome");    
+}  
+}  
+
+OUTPUT:- palindrome  number
+
+
+
+c. Whether the given no is prime or not
+
+import java.util.Scanner;
+
+public class PrimeNumberCheckProgram {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        
+        if (isPrime(number)) {
+            System.out.println(number + " is a prime number.");
+        } else {
+            System.out.println(number + " is not a prime number.");
+        }
+    }
+    
+    public static boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
+
+
+
+
+d. Average, smallest, greatest by using array
+import java.util.Scanner;
+
+public class ArrayOperationsProgram {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+        int[] numbers = new int[size];
+
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < size; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+
+        double average = calculateAverage(numbers);
+        int smallest = findSmallest(numbers);
+        int greatest = findGreatest(numbers);
+
+        System.out.println("Average: " + average);
+        System.out.println("Smallest: " + smallest);
+        System.out.println("Greatest: " + greatest);
+    }
+
+    public static double calculateAverage(int[] numbers) {
+        int sum = 0;
+        for (int number : numbers) {
+            sum += number;
+        }
+        return (double) sum / numbers.length;
+    }
+
+    public static int findSmallest(int[] numbers) {
+        int smallest = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] < smallest) {
+                smallest = numbers[i];
+            }
+        }
+        return smallest;
+    }
+
+    public static int findGreatest(int[] numbers) {
+        int greatest = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > greatest) {
+                greatest = numbers[i];
+            }
+        }
+        return greatest;
+    }
+}
+
+
